@@ -238,7 +238,7 @@ impl RustApp {
             &self.manifest.manifest_path,
         ];
         if self.cfg.release {
-            args.push("--release");
+            args.push("--release -Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort");
         }
         if let Some(bin) = &self.bin {
             args.push("--bin");
